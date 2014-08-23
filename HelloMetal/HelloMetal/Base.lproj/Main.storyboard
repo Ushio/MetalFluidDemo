@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6206.8" systemVersion="13E28" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vXZ-lx-hvc">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7026.1"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="ufC-wZ-h7g">
+            <objects>
+                <viewController id="vXZ-lx-hvc" customClass="ViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="jyV-Pf-zRb"/>
+                        <viewControllerLayoutGuide type="bottom" id="2fi-mo-0CV"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="kh9-bI-dsS">
+                        <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PuE-zY-qrm" userLabel="MetalPlaceholder">
+                                <rect key="frame" x="0.0" y="20" width="768" height="768"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="PuE-zY-qrm" secondAttribute="height" multiplier="1:1" id="wGz-Iw-OTJ"/>
+                                </constraints>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WPL-WM-xGQ">
+                                <rect key="frame" x="16" y="961" width="94" height="43"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="43" id="B2U-C3-6KU"/>
+                                    <constraint firstAttribute="width" constant="94" id="mqb-ba-vVe"/>
+                                </constraints>
+                                <state key="normal" title="チェッカー">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="didSelectedChecker:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="MBG-vb-zwa"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pwq-28-HkK">
+                                <rect key="frame" x="125" y="961" width="97" height="43"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="97" id="LhD-QW-g3L"/>
+                                    <constraint firstAttribute="height" constant="43" id="vTI-PS-Ugw"/>
+                                </constraints>
+                                <state key="normal" title="画像">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="didSelectedImage:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="H9U-Yw-s3u"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="PuE-zY-qrm" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" id="2cF-Io-uUo"/>
+                            <constraint firstItem="PuE-zY-qrm" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" id="4en-d5-mMk"/>
+                            <constraint firstItem="Pwq-28-HkK" firstAttribute="leading" secondItem="WPL-WM-xGQ" secondAttribute="trailing" constant="15" id="7jD-y9-zj7"/>
+                            <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="WPL-WM-xGQ" secondAttribute="bottom" constant="20" id="GFj-HV-nFZ"/>
+                            <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="Pwq-28-HkK" secondAttribute="bottom" constant="20" id="SsZ-je-4hU"/>
+                            <constraint firstItem="WPL-WM-xGQ" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" constant="16" id="l7f-oe-dFc"/>
+                            <constraint firstAttribute="trailing" secondItem="PuE-zY-qrm" secondAttribute="trailing" id="m5t-l8-YPS"/>
+                        </constraints>
+                    </view>
+                    <value key="contentSizeForViewInPopover" type="size" width="1024" height="768"/>
+                    <simulatedOrientationMetrics key="simulatedOrientationMetrics"/>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="768" height="1024"/>
+                    <connections>
+                        <outlet property="_metalPlaceholderView" destination="PuE-zY-qrm" id="8HN-yH-R3D"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="204" y="90"/>
+        </scene>
+    </scenes>
+</document>
