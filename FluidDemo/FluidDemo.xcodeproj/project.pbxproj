@@ -12,24 +12,12 @@
 		075CA9C51974B99D00824C1D /* ViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 075CA9C41974B99D00824C1D /* ViewController.mm */; };
 		075CA9C81974B99D00824C1D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 075CA9C61974B99D00824C1D /* Main.storyboard */; };
 		075CA9CA1974B99D00824C1D /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 075CA9C91974B99D00824C1D /* Images.xcassets */; };
-		075CA9D61974B99D00824C1D /* HelloMetalTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 075CA9D51974B99D00824C1D /* HelloMetalTests.m */; };
 		07E8D21E1974BA9C0096C124 /* MetalView.m in Sources */ = {isa = PBXBuildFile; fileRef = 07E8D21D1974BA9C0096C124 /* MetalView.m */; };
 		07E8D2201974C21C0096C124 /* MyShader.metal in Sources */ = {isa = PBXBuildFile; fileRef = 07E8D21F1974C21C0096C124 /* MyShader.metal */; };
 		A619DBCA1978189E0022DE95 /* Metal.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A619DBC91978189E0022DE95 /* Metal.framework */; };
-		A619DBCB197822520022DE95 /* ViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 075CA9C41974B99D00824C1D /* ViewController.mm */; };
 		A68779A119926FDE006D426E /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A68779A019926FDE006D426E /* MobileCoreServices.framework */; };
 		A68779A31992728F006D426E /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A68779A21992728F006D426E /* Accelerate.framework */; };
 /* End PBXBuildFile section */
-
-/* Begin PBXContainerItemProxy section */
-		075CA9D01974B99D00824C1D /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 075CA9B11974B99D00824C1D /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 075CA9B81974B99D00824C1D;
-			remoteInfo = HelloMetal;
-		};
-/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		075CA9B91974B99D00824C1D /* FluidDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FluidDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -41,9 +29,6 @@
 		075CA9C41974B99D00824C1D /* ViewController.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = ViewController.mm; sourceTree = "<group>"; };
 		075CA9C71974B99D00824C1D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		075CA9C91974B99D00824C1D /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		075CA9CF1974B99D00824C1D /* FluidDemoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FluidDemoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		075CA9D41974B99D00824C1D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		075CA9D51974B99D00824C1D /* HelloMetalTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HelloMetalTests.m; sourceTree = "<group>"; };
 		07E8D21C1974BA9C0096C124 /* MetalView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MetalView.h; sourceTree = "<group>"; };
 		07E8D21D1974BA9C0096C124 /* MetalView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MetalView.m; sourceTree = "<group>"; };
 		07E8D21F1974C21C0096C124 /* MyShader.metal */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.metal; path = MyShader.metal; sourceTree = "<group>"; };
@@ -64,13 +49,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		075CA9CC1974B99D00824C1D /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -80,8 +58,7 @@
 				A68779A21992728F006D426E /* Accelerate.framework */,
 				A68779A019926FDE006D426E /* MobileCoreServices.framework */,
 				A619DBC91978189E0022DE95 /* Metal.framework */,
-				075CA9BB1974B99D00824C1D /* HelloMetal */,
-				075CA9D21974B99D00824C1D /* HelloMetalTests */,
+				075CA9BB1974B99D00824C1D /* FluidDemo */,
 				075CA9BA1974B99D00824C1D /* Products */,
 			);
 			sourceTree = "<group>";
@@ -90,12 +67,11 @@
 			isa = PBXGroup;
 			children = (
 				075CA9B91974B99D00824C1D /* FluidDemo.app */,
-				075CA9CF1974B99D00824C1D /* FluidDemoTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		075CA9BB1974B99D00824C1D /* HelloMetal */ = {
+		075CA9BB1974B99D00824C1D /* FluidDemo */ = {
 			isa = PBXGroup;
 			children = (
 				075CA9C01974B99D00824C1D /* AppDelegate.h */,
@@ -110,7 +86,7 @@
 				075CA9C91974B99D00824C1D /* Images.xcassets */,
 				075CA9BC1974B99D00824C1D /* Supporting Files */,
 			);
-			path = HelloMetal;
+			path = FluidDemo;
 			sourceTree = "<group>";
 		};
 		075CA9BC1974B99D00824C1D /* Supporting Files */ = {
@@ -118,23 +94,6 @@
 			children = (
 				075CA9BD1974B99D00824C1D /* Info.plist */,
 				075CA9BE1974B99D00824C1D /* main.m */,
-			);
-			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		075CA9D21974B99D00824C1D /* HelloMetalTests */ = {
-			isa = PBXGroup;
-			children = (
-				075CA9D51974B99D00824C1D /* HelloMetalTests.m */,
-				075CA9D31974B99D00824C1D /* Supporting Files */,
-			);
-			path = HelloMetalTests;
-			sourceTree = "<group>";
-		};
-		075CA9D31974B99D00824C1D /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				075CA9D41974B99D00824C1D /* Info.plist */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -155,27 +114,9 @@
 			dependencies = (
 			);
 			name = FluidDemo;
-			productName = HelloMetal;
+			productName = FluidDemo;
 			productReference = 075CA9B91974B99D00824C1D /* FluidDemo.app */;
 			productType = "com.apple.product-type.application";
-		};
-		075CA9CE1974B99D00824C1D /* FluidDemoTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 075CA9DC1974B99D00824C1D /* Build configuration list for PBXNativeTarget "FluidDemoTests" */;
-			buildPhases = (
-				075CA9CB1974B99D00824C1D /* Sources */,
-				075CA9CC1974B99D00824C1D /* Frameworks */,
-				075CA9CD1974B99D00824C1D /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				075CA9D11974B99D00824C1D /* PBXTargetDependency */,
-			);
-			name = FluidDemoTests;
-			productName = HelloMetalTests;
-			productReference = 075CA9CF1974B99D00824C1D /* FluidDemoTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
 
@@ -189,10 +130,6 @@
 					075CA9B81974B99D00824C1D = {
 						CreatedOnToolsVersion = 6.0;
 						DevelopmentTeam = N9799TM9BH;
-					};
-					075CA9CE1974B99D00824C1D = {
-						CreatedOnToolsVersion = 6.0;
-						TestTargetID = 075CA9B81974B99D00824C1D;
 					};
 				};
 			};
@@ -210,7 +147,6 @@
 			projectRoot = "";
 			targets = (
 				075CA9B81974B99D00824C1D /* FluidDemo */,
-				075CA9CE1974B99D00824C1D /* FluidDemoTests */,
 			);
 		};
 /* End PBXProject section */
@@ -222,13 +158,6 @@
 			files = (
 				075CA9C81974B99D00824C1D /* Main.storyboard in Resources */,
 				075CA9CA1974B99D00824C1D /* Images.xcassets in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		075CA9CD1974B99D00824C1D /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -247,24 +176,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		075CA9CB1974B99D00824C1D /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				A619DBCB197822520022DE95 /* ViewController.mm in Sources */,
-				075CA9D61974B99D00824C1D /* HelloMetalTests.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		075CA9D11974B99D00824C1D /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 075CA9B81974B99D00824C1D /* FluidDemo */;
-			targetProxy = 075CA9D01974B99D00824C1D /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		075CA9C61974B99D00824C1D /* Main.storyboard */ = {
@@ -366,10 +278,10 @@
 					"/Applications/Xcode6-Beta3.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include",
 					"\"$(SRCROOT)/../glm\"",
 				);
-				INFOPLIST_FILE = HelloMetal/Info.plist;
+				INFOPLIST_FILE = FluidDemo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = FluidDemo;
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "FA3CAB25-D7F2-4EE7-B604-5B096B5785E9";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -386,45 +298,11 @@
 					"/Applications/Xcode6-Beta3.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include",
 					"\"$(SRCROOT)/../glm\"",
 				);
-				INFOPLIST_FILE = HelloMetal/Info.plist;
+				INFOPLIST_FILE = FluidDemo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = FluidDemo;
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "FA3CAB25-D7F2-4EE7-B604-5B096B5785E9";
 				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Release;
-		};
-		075CA9DD1974B99D00824C1D /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/HelloMetal.app/HelloMetal";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-				);
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = HelloMetalTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = FluidDemoTests;
-				TEST_HOST = "$(BUNDLE_LOADER)";
-			};
-			name = Debug;
-		};
-		075CA9DE1974B99D00824C1D /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/HelloMetal.app/HelloMetal";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = HelloMetalTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = FluidDemoTests;
-				TEST_HOST = "$(BUNDLE_LOADER)";
 			};
 			name = Release;
 		};
@@ -445,15 +323,6 @@
 			buildConfigurations = (
 				075CA9DA1974B99D00824C1D /* Debug */,
 				075CA9DB1974B99D00824C1D /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		075CA9DC1974B99D00824C1D /* Build configuration list for PBXNativeTarget "FluidDemoTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				075CA9DD1974B99D00824C1D /* Debug */,
-				075CA9DE1974B99D00824C1D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
