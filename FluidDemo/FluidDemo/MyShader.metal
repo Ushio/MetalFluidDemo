@@ -110,6 +110,13 @@ kernel void step_fuild(texture2d<float, access::sample>  input [[ texture(0) ]],
     
     float3 blur = nextC * v4 /**/ + w * v2 + a * v2 + s * v2  + d * v2 /**/ + aw * v1 + as * v1 + sd * v1 + wd * v1;
     
+    // ダラダラと動かないように
+    if(abs(blur.x) + abs(blur.y) < (1.0f / FUILD_SIZE))
+    {
+        blur.x = 0.0f;
+        blur.y = 0.0f;
+    }
+    
     // write
     output.write(float4(blur.x, blur.y, blur.z, 1.0f), gid);
     
@@ -123,12 +130,8 @@ kernel void step_fuild(texture2d<float, access::sample>  input [[ texture(0) ]],
     float4 c2 = inputImage.sample(fluid_sampler, float2(origin.x, origin.y + 1.0f));
     float4 c3 = inputImage.sample(fluid_sampler, float2(origin.x + 1.0f, origin.y + 1.0f));
     
-    float4 color = mix(mix(c0, c1, mod.x), mix(c2, c3, mod.x), mod.y);
-    outputImage.write(color, gid);
+    float bias_color = length(velocity) * 0.0002;
     
-//    float2 velocity = -blur.xy;
-//    float2 uv = gidf + velocity;
-//    constexpr sampler image_sampler(coord::normalized, filter::linear, address::repeat);
-//    float4 color = inputImage.sample(image_sampler, uv / FUILD_SIZE);
-//    outputImage.write(color, gid);
+    float4 color = mix(mix(c0, c1, mod.x), mix(c2, c3, mod.x), mod.y);
+    outputImage.write(color + float4(bias_color, bias_color, bias_color, 0.0f), gid);
 }
