@@ -95,7 +95,7 @@ kernel void step_fuild(texture2d<float, access::sample>  input [[ texture(0) ]],
     nextU += fuildConstant->force * (1.0f - smoothstep(5.0f, 25.0f, dist));
     
     // 減衰
-    nextU = nextU - nextU * 0.03f;
+    nextU = nextU - nextU * 0.035f;
 
     // まとめる
     float3 nextC = float3(nextU.x, nextU.y, nextW);
@@ -108,9 +108,15 @@ kernel void step_fuild(texture2d<float, access::sample>  input [[ texture(0) ]],
     
     float3 blur = nextC * v4 /**/ + w * v2 + a * v2 + s * v2  + d * v2 /**/ + aw * v1 + as * v1 + sd * v1 + wd * v1;
     
+    // 小さな数字のときに移動させないことで誤差を減らす
+    if(abs(blur.x) + abs(blur.y) < (1.0f / FUILD_SIZE))
+    {
+        blur.x = 0.0f;
+        blur.y = 0.0f;
+    }
+    
     // write
     output.write(float4(blur.x, blur.y, blur.z, 1.0f), gid);
-    
     
     // image
     float2 velocity = -blur.xy;
