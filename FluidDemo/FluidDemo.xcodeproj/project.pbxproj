@@ -277,11 +277,12 @@
 					"$(inherited)",
 					"/Applications/Xcode6-Beta3.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include",
 					"\"$(SRCROOT)/../glm\"",
+					"\"$(SRCROOT)/../half-1.11.0/include\"",
 				);
 				INFOPLIST_FILE = FluidDemo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = FluidDemo;
-				PROVISIONING_PROFILE = "FA3CAB25-D7F2-4EE7-B604-5B096B5785E9";
+				PROVISIONING_PROFILE = "fc6de012-986b-43f5-9efe-c21431c00ca3";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -297,11 +298,12 @@
 					"$(inherited)",
 					"/Applications/Xcode6-Beta3.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include",
 					"\"$(SRCROOT)/../glm\"",
+					"\"$(SRCROOT)/../half-1.11.0/include\"",
 				);
 				INFOPLIST_FILE = FluidDemo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = FluidDemo;
-				PROVISIONING_PROFILE = "FA3CAB25-D7F2-4EE7-B604-5B096B5785E9";
+				PROVISIONING_PROFILE = "fc6de012-986b-43f5-9efe-c21431c00ca3";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;

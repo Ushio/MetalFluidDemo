@@ -11,8 +11,11 @@ namespace MyShaderTypes {
         simd::float2 texcoord;
     };
     
-    // 外力
+    
     struct FuildConstant{
+        
+        
+        // 外力
         simd::float2 a, b;
         simd::float2 force;
     };

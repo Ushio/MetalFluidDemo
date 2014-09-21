@@ -11,6 +11,8 @@
 #include <glm/glm.hpp>
 #include <glm/ext.hpp>
 
+#include <half.hpp>
+
 #import "MetalView.h"
 #include "MyShaderTypes.hpp"
 
@@ -35,6 +37,8 @@ namespace {
         
         return (((size - 1) >> 4) << 4) + 16;
     }
+    
+    typedef glm::detail::tvec4<half_float::half, glm::highp> hvec4;
 
     template <typename T>
     using cf_shared_ptr = std::shared_ptr<typename std::remove_pointer<T>::type>;
@@ -150,15 +154,15 @@ namespace {
                                          length:sizeof(quad)
                                         options:0];
     
-    auto create_rgba32float_texture = ^{
-        MTLTextureDescriptor *desc = [MTLTextureDescriptor texture2DDescriptorWithPixelFormat:MTLPixelFormatRGBA32Float
+    auto create_rgba16float_texture = ^{
+        MTLTextureDescriptor *desc = [MTLTextureDescriptor texture2DDescriptorWithPixelFormat:MTLPixelFormatRGBA16Float
                                                                                         width:FUILD_SIZE
                                                                                        height:FUILD_SIZE
                                                                                     mipmapped:NO];
         return [_device newTextureWithDescriptor:desc];
     };
-    _fuild_rgb_texture0 = create_rgba32float_texture();
-    _fuild_rgb_texture1 = create_rgba32float_texture();
+    _fuild_rgb_texture0 = create_rgba16float_texture();
+    _fuild_rgb_texture1 = create_rgba16float_texture();
     
     [self didSelectedChecker:nil];
     
@@ -169,16 +173,16 @@ namespace {
 
     }();
     
-    _fuild_simulation_texture0 = create_rgba32float_texture();
-    _fuild_simulation_texture1 = create_rgba32float_texture();
+    _fuild_simulation_texture0 = create_rgba16float_texture();
+    _fuild_simulation_texture1 = create_rgba16float_texture();
     
     // 流体初期化
-    std::vector<simd::float4> fuild_initial_data(FUILD_SIZE * FUILD_SIZE, simd::float4{0.0f, 0.0f, 1.0f, 1.0f});
+    std::vector<hvec4> fuild_initial_data(FUILD_SIZE * FUILD_SIZE, hvec4(0.0f, 0.0f, 1.0f, 1.0f));
     MTLRegion region = MTLRegionMake2D(0, 0, _fuild_simulation_texture0.width, _fuild_simulation_texture0.height);
     [_fuild_simulation_texture0 replaceRegion:region
                     mipmapLevel:0
                       withBytes:fuild_initial_data.data()
-                    bytesPerRow:sizeof(simd::float4) * FUILD_SIZE];
+                    bytesPerRow:sizeof(decltype(fuild_initial_data)::value_type) * FUILD_SIZE];
 
     MyShaderTypes::FuildConstant fuildConstant = {0};
     _fuildConstantBuffer = [_device newBufferWithBytes:&fuildConstant
@@ -191,7 +195,6 @@ namespace {
         desc.vertexFunction = [_library newFunctionWithName:@"myVertexShader"];
         desc.fragmentFunction = [_library newFunctionWithName:@"myFragmentShader"];
         desc.colorAttachments[0].pixelFormat = metalView.metalLayer.pixelFormat;
-        desc.depthAttachmentPixelFormat = MTLPixelFormatDepth32Float;
         desc.sampleCount = 1;
         return [_device newRenderPipelineStateWithDescriptor:desc error:&error];
     }();
@@ -250,7 +253,7 @@ namespace {
 }
 - (IBAction)didSelectedChecker:(UIButton *)sender
 {
-    std::vector<simd::float4> texture_data(FUILD_SIZE * FUILD_SIZE);
+    std::vector<hvec4> texture_data(FUILD_SIZE * FUILD_SIZE);
     for(int y = 0 ; y < FUILD_SIZE ; ++y)
     {
         for(int x = 0 ; x < FUILD_SIZE ; ++x)
@@ -261,7 +264,8 @@ namespace {
             glm::vec3 hsv = glm::vec3(h, 1.0, 1.0);
             glm::vec3 rgb = glm::rgbColor(hsv);
             
-            texture_data[y * FUILD_SIZE + x] = bridge(glm::vec4(rgb * c, 1.0));
+            glm::vec3 color = rgb * c;
+            texture_data[y * FUILD_SIZE + x] = hvec4(color, 1.0f);
         }
     }
     
@@ -336,7 +340,7 @@ namespace {
     
     vImageScale_ARGB8888(&srcImageBuffer, &dstImageBuffer, NULL, kvImageHighQualityResampling);
     
-    std::vector<simd::float4> texture_data(FUILD_SIZE * FUILD_SIZE);
+    std::vector<hvec4> texture_data(FUILD_SIZE * FUILD_SIZE);
     
     float div255 = 1.0f / 255.0f;
     for(int y = 0 ; y < FUILD_SIZE ; ++y)
@@ -349,7 +353,7 @@ namespace {
             float g = (float)pixelHead[1] * div255;
             float b = (float)pixelHead[2] * div255;
             
-            texture_data[y * FUILD_SIZE + x] = simd::float4{r, g, b, 1.0f};
+            texture_data[y * FUILD_SIZE + x] = hvec4(r, g, b, 1.0f);
         }
     }
     for(id<MTLTexture> texture in @[_fuild_rgb_texture0, _fuild_rgb_texture1])

@@ -124,4 +124,10 @@ kernel void step_fuild(texture2d<float, access::sample>  input [[ texture(0) ]],
     
     float4 color = mix(mix(c0, c1, mod.x), mix(c2, c3, mod.x), mod.y);
     outputImage.write(color, gid);
+    
+//    float2 velocity = -blur.xy;
+//    float2 uv = gidf + velocity;
+//    constexpr sampler image_sampler(coord::normalized, filter::linear, address::repeat);
+//    float4 color = inputImage.sample(image_sampler, uv / FUILD_SIZE);
+//    outputImage.write(color, gid);
 }
