@@ -383,6 +383,10 @@ namespace {
     
     // 流体シミュレーション
     id <MTLCommandBuffer> commandBuffer = [_commandQueue commandBuffer];
+    if(commandBuffer == nil)
+    {
+        return;
+    }
     
     MTLSize threadsPerGroup = {16, 16, 1};
     MTLSize numThreadgroups = {(int)FUILD_SIZE / threadsPerGroup.width, (int)FUILD_SIZE / threadsPerGroup.height, 1};

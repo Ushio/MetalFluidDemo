@@ -44,7 +44,9 @@ inline float calc_next_w(float Lux, float Rux, float Tuy, float Buy, float cente
 // 点cと線分abの間の距離の平方を返す
 inline float SqDistPointSegment(float2 a, float2 b, float2 c)
 {
-    float2 ab = b - a, ac = c - a, bc = c - b;
+    float2 ab = b - a;
+    float2 ac = c - a;
+    float2 bc = c - b;
     float e = dot(ac, ab);
     // cがabの外側に射影される場合を扱う
     if (e <= 0.0f)
@@ -107,13 +109,6 @@ kernel void step_fuild(texture2d<float, access::sample>  input [[ texture(0) ]],
     constexpr float v4 = one * 4.0f;
     
     float3 blur = nextC * v4 /**/ + w * v2 + a * v2 + s * v2  + d * v2 /**/ + aw * v1 + as * v1 + sd * v1 + wd * v1;
-    
-    // 小さな数字のときに移動させないことで誤差を減らす
-    if(abs(blur.x) + abs(blur.y) < (1.0f / FUILD_SIZE))
-    {
-        blur.x = 0.0f;
-        blur.y = 0.0f;
-    }
     
     // write
     output.write(float4(blur.x, blur.y, blur.z, 1.0f), gid);

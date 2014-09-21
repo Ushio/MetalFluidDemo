@@ -281,6 +281,7 @@
 				);
 				INFOPLIST_FILE = FluidDemo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				MTL_FAST_MATH = NO;
 				PRODUCT_NAME = FluidDemo;
 				PROVISIONING_PROFILE = "fc6de012-986b-43f5-9efe-c21431c00ca3";
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -302,6 +303,7 @@
 				);
 				INFOPLIST_FILE = FluidDemo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				MTL_FAST_MATH = NO;
 				PRODUCT_NAME = FluidDemo;
 				PROVISIONING_PROFILE = "fc6de012-986b-43f5-9efe-c21431c00ca3";
 				TARGETED_DEVICE_FAMILY = "1,2";
